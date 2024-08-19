@@ -7,7 +7,7 @@ categories: jekyll update
 ## Lua
 [Lua](https://www.lua.org/) is a scripting language which is simple and quite easy to learn. It's used in games like [World of Warcraft](https://warcraft.wiki.gg/wiki/World_of_Warcraft_API) and [Minetest](https://www.minetest.net/), and software like [Wireshark](https://www.wireshark.org/) and [MediaWiki](https://www.mediawiki.org/wiki/Extension:Scribunto).
 
-[LuaRocks](https://luarocks.org/) is the package manager for Lua to install modules. But it's slightly annoying to set up on Windows, compared to on Unix. Its ecosystem is smaller compared to ones for other languages, and any issues are more difficult to debug; which is why I'd advocate for using Python instead of Lua.
+[LuaRocks](https://luarocks.org/) is the package manager for Lua to install modules. But it's difficult to set up on Windows, compared to on Unix. Its ecosystem is smaller compared to ones for other languages, and any issues are more difficult to debug; which is why I'd advocate for using Python instead of Lua.
 
 I personally use Lua for generating [LuaLS](https://github.com/LuaLS/lua-language-server) annotations for a WoW [VS Code extension](https://github.com/Ketho/vscode-wow-api) which needs to load the [Blizzard_APIDocumentation](https://github.com/Gethe/wow-ui-source/tree/live/Interface/AddOns/Blizzard_APIDocumentationGenerated) Lua files.
 
@@ -16,13 +16,13 @@ This guide is for setting up Lua 5.4 64-bit. Note that Lua has no installer, you
 
 Requirements:
 - [lua-5.4.2_Win64_bin.zip](https://sourceforge.net/projects/luabinaries/files/5.4.2/Tools%20Executables/lua-5.4.2_Win64_bin.zip/download)
-  - from https://sourceforge.net/projects/luabinaries/files/5.4.2/Tools%20Executables/
+  - from [https://sourceforge.net/projects/luabinaries/files/5.4.2/Tools%20Executables/](https://sourceforge.net/projects/luabinaries/files/5.4.2/Tools%20Executables/)
 - [luarocks-3.11.1-windows-64](https://luarocks.org/releases/luarocks-3.11.1-windows-64.zip) (all-in-one package)
-  - from https://github.com/luarocks/luarocks/wiki/Download
+  - from [https://github.com/luarocks/luarocks/wiki/Download](https://github.com/luarocks/luarocks/wiki/Download)
 - [winlibs-x86_64-posix-seh-gcc-14.2.0-llvm-18.1.8-mingw-w64ucrt-12.0.0-r1.zip](https://github.com/brechtsanders/winlibs_mingw/releases/download/14.2.0posix-18.1.8-12.0.0-ucrt-r1/winlibs-x86_64-posix-seh-gcc-14.2.0-llvm-18.1.8-mingw-w64ucrt-12.0.0-r1.zip)
-  - from https://winlibs.com/
+  - from [https://winlibs.com/](https://winlibs.com/)
 - `openssl-3.0.2-win64-mingw` (for LuaSec)
-  - from https://curl.se/windows/ but they [no longer](https://archive.is/Ogwbv) provide OpenSSL windows binaries, and I could not find any similar distributions so use this [mirror](../data/software/openssl-3.0.2-win64-mingw.zip) at your own risk.
+  - from [https://curl.se/windows/](https://curl.se/windows/) but they [no longer](https://archive.is/Ogwbv) provide OpenSSL windows binaries, and I could not find any similar distributions so use this [mirror](https://github.com/Ketho/ketho.github.io/raw/main/data/software/openssl-3.0.2-win64-mingw.zip) at your own risk.
 
 This PowerShell script tries to automate the setup steps, but I suggest going through it step for step in case of any errors.
 
@@ -30,7 +30,7 @@ It requires installing [PowerShell 7](https://learn.microsoft.com/en-us/powershe
 ```ps1
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted
 ```
-```ps1
+```powershell
 # your work directory
 $base = "D:/Dev"
 
@@ -72,7 +72,7 @@ luarocks install csv
 ## Issues
 ### PowerShell script
 There is a caveat with this script I haven't solved. Any user variables (vs system varables) also show up in the path so they get duplicated. You will need to delete them afterwards from the system variables.
-```ps1
+```powershell
 $env:path = $env:path + ($lua, $luarocks, $mingw, $openssl -join ";")
 [Environment]::SetEnvironmentVariable("Path", $env:Path, [System.EnvironmentVariableTarget]::Machine)
 ```
@@ -82,7 +82,7 @@ For example these paths would show up twice in the system variables.
 
 ### LuaSocket
 [LuaSocket](https://luarocks.org/modules/lunarmodules/luasocket) version `scm-3` has an issue on Windows.
-- https://github.com/lunarmodules/luasocket/pull/433
+- [https://github.com/lunarmodules/luasocket/pull/433](https://github.com/lunarmodules/luasocket/pull/433)
 
 You will need to download the [rockspec](https://github.com/lunarmodules/luasocket/blob/master/luasocket-scm-3.rockspec), apply the [patch](https://github.com/lunarmodules/luasocket/pull/433/files) to the rockspec and install it manually.
 ```
