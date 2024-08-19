@@ -15,21 +15,25 @@ I personally use Lua for generating [LuaLS](https://github.com/LuaLS/lua-languag
 This guide is for setting up Lua 5.4 64-bit. Note that Lua has no installer, you just get the available Windows binaries. We also need MinGW for Windows to be able to install LuaRocks modules.
 
 Requirements:
-- [lua-5.4.2_Win64_bin.zip](https://sourceforge.net/projects/luabinaries/files/5.4.2/Tools%20Executables/lua-5.4.2_Win64_bin.zip/download)
+- Lua binary: [lua-5.4.2_Win64_bin.zip](https://sourceforge.net/projects/luabinaries/files/5.4.2/Tools%20Executables/lua-5.4.2_Win64_bin.zip/download)
   - from [https://sourceforge.net/projects/luabinaries/files/5.4.2/Tools%20Executables/](https://sourceforge.net/projects/luabinaries/files/5.4.2/Tools%20Executables/)
-- [luarocks-3.11.1-windows-64](https://luarocks.org/releases/luarocks-3.11.1-windows-64.zip) (all-in-one package)
+- Lua library: [lua-5.4.2_Win64_vc17_lib](https://sourceforge.net/projects/luabinaries/files/5.4.2/Windows%20Libraries/Static/lua-5.4.2_Win64_vc17_lib.zip/download)
+  - from https://sourceforge.net/projects/luabinaries/files/5.4.2/Windows%20Libraries/Static/
+- LuaRocks: [luarocks-3.11.1-windows-64](https://luarocks.org/releases/luarocks-3.11.1-windows-64.zip) (all-in-one package)
   - from [https://github.com/luarocks/luarocks/wiki/Download](https://github.com/luarocks/luarocks/wiki/Download)
-- [winlibs-x86_64-posix-seh-gcc-14.2.0-llvm-18.1.8-mingw-w64ucrt-12.0.0-r1.zip](https://github.com/brechtsanders/winlibs_mingw/releases/download/14.2.0posix-18.1.8-12.0.0-ucrt-r1/winlibs-x86_64-posix-seh-gcc-14.2.0-llvm-18.1.8-mingw-w64ucrt-12.0.0-r1.zip)
+- MinGW: [winlibs-x86_64-posix-seh-gcc-14.2.0-llvm-18.1.8-mingw-w64ucrt-12.0.0-r1.zip](https://github.com/brechtsanders/winlibs_mingw/releases/download/14.2.0posix-18.1.8-12.0.0-ucrt-r1/winlibs-x86_64-posix-seh-gcc-14.2.0-llvm-18.1.8-mingw-w64ucrt-12.0.0-r1.zip)
   - from [https://winlibs.com/](https://winlibs.com/)
-- `openssl-3.0.2-win64-mingw` (for LuaSec)
+- OpenSSL: `openssl-3.0.2-win64-mingw` (for LuaSec)
   - from [https://curl.se/windows/](https://curl.se/windows/) but they [no longer](https://archive.is/Ogwbv) provide OpenSSL windows binaries, and I could not find any similar distributions so use this [mirror](https://github.com/Ketho/ketho.github.io/raw/main/data/software/openssl-3.0.2-win64-mingw.zip) at your own risk.
 
-This PowerShell script tries to automate the setup steps, but I suggest going through it step for step in case of any errors.
-
-It requires installing [PowerShell 7](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.4) and changing the [execution policy](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7.4); please do this at your own risk.
+### Notes
+- Either static (vc17) or dynamic (dll17) Lua libraries can be used, the only thing we need is the `include` folder from it and to move that into our Lua folder, e.g. `lua-5.4.2_Win64_bin/include`.
+- It requires installing [PowerShell 7](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.4) and changing the [execution policy](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7.4); please do this at your own risk.
 ```ps1
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted
 ```
+
+This PowerShell script tries to automate the setup steps, but I suggest going through it step for step in case of any errors.
 ```powershell
 # your work directory
 $base = "D:/Dev"
