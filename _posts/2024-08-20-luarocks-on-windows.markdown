@@ -78,7 +78,7 @@ $env:path = $env:path + ($lua, $luarocks, $mingw, $openssl -join ";")
 ```
 For example these paths would show up twice in the system variables.
 
-![](../data/img/20240820_uservars.png)
+![](https://ketho.github.io//data/img/20240820_uservars.png)
 
 ### LuaSocket
 [LuaSocket](https://luarocks.org/modules/lunarmodules/luasocket) version `scm-3` has an issue on Windows.
