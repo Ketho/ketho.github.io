@@ -6,6 +6,7 @@ categories: jekyll update
 ---
 - Website: [https://2024.crewc.tf/](https://2024.crewc.tf/)
 - CTFtime: [https://ctftime.org/event/2223/](https://ctftime.org/event/2223/)
+- Writeups: [https://github.com/Thehackerscrew/CrewCTF-2024-Public](https://github.com/Thehackerscrew/CrewCTF-2024-Public)
 
 ## Table of Contents
   - [Team](#team)
