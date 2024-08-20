@@ -190,3 +190,22 @@ We had been looking in Clarence, New South Wales, but the clue "These broom head
 [https://maps.app.goo.gl/7mVsbvbhUqo7RkZ29](https://maps.app.goo.gl/7mVsbvbhUqo7RkZ29)
 
 ![](https://ketho.github.io/data/img/ductf/decoys2.jpg)
+
+## Sounds Nice
+- category: hardware
+
+> I'm trying to reverse engineer this sound bar. Maybe you can answer my questions about this?
+> 
+> Which bluetooth chipset is used?  
+> What is wireless audio chipset used?  
+> What is the value of the coupling capacitor, connected to the audio module's RX antenna? Give your answer in pico-farads  
+> What is the pin number on the wireless audio chipset for the I2C clock signal?
+
+1. bluetooth chipset: [ATS2853](https://fccid.io/2AIMRMITVS26/Internal-Photos/Internal-photos-5514992)
+2. wireless audio chipset: [ETK51](https://fccid.io/Z9G-EDF54/User-Manual/User-Manual-3526427.html)
+3. coupling capacitor: 9
+4. pin number: 31
+
+```
+DUCTF{ATS2853_ETK51_9_31}
+```

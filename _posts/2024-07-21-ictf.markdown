@@ -45,15 +45,14 @@ In Packet Tracer you can view the Command Log with `ctrl-shift-v`. This is conve
 
 ![](https://ketho.github.io/data/img/ictf/puppy1.png)
 
-![](https://ketho.github.io/data/img/ictf/puppy2.png)
+![](https://ketho.github.io/data/img/ictf/puppy2.jpg)
 
 I made a major mistake here, I assumed the name of the dog's name would literally be wrapped in `ictf{}` 🤦
 
-It's possible to find the dog with [NBTExplorer](https://github.com/jaquadro/NBTExplorer)
+It's possible to find the dog with [NBTExplorer](https://github.com/jaquadro/NBTExplorer). 
+This search finds the first dog in `entities -> r.-1.-1.mca -> Chunk [30, 28]`
 
 ![](https://ketho.github.io/data/img/ictf/puppy_nbt1.png)
-
-This search finds the first dog in `entities -> r.-1.-1.mca -> Chunk [30, 28]`
 
 ![](https://ketho.github.io/data/img/ictf/puppy_nbt2.png)
 
