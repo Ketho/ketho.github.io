@@ -6,12 +6,15 @@ categories: jekyll update
 ---
 - Website: [https://2024.imaginaryctf.org/](https://2024.imaginaryctf.org/)
 - CTFtime: [https://ctftime.org/event/2396/](https://ctftime.org/event/2396/)
-- Challenges:
+
+## Table of Contents
+  - [Team](#team)
   - [bom](#bom)
   - [routed](#routed)
   - [playful puppy](#playful-puppy)
 
-Hague Hackers placed [#148](https://2024.imaginaryctf.org/Leaderboard.html) with 1749 points.
+## Team
+My team Hague Hackers placed [#148](https://2024.imaginaryctf.org/Leaderboard.html) with 1749 points.
 
 ![](https://ketho.github.io/data/img/ictf/team.png)
 
