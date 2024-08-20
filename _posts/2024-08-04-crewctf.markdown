@@ -39,7 +39,7 @@ The [CardKB Mini Keyboard](https://shop.m5stack.com/products/cardkb-mini-keyboar
 
 So we need to look for reads to `0x5F` in the sniffed [data](https://ketho.github.io/data/crewctf/sniffone/data.txt) and for "flag" which would be `0x66, 0x6C, 0x61, 0x67` according to the data sheet.
 
-Surely enough we found 0x66 followed by 0x6C.
+Surely enough we ([Ardemium](https://ardemium.nl/) actually) found 0x66 followed by 0x6C.
 
 ![](https://ketho.github.io/data/crewctf/sniffone/logic.png)
 
