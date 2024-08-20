@@ -6,6 +6,10 @@ categories: jekyll update
 ---
 - Website: [https://2024.imaginaryctf.org/](https://2024.imaginaryctf.org/)
 - CTFtime: [https://ctftime.org/event/2396/](https://ctftime.org/event/2396/)
+- Challenges:
+  - [bom](#bom)
+  - [routed](#routed)
+  - [playful puppy](#playful-puppy)
 
 Hague Hackers placed [#148](https://2024.imaginaryctf.org/Leaderboard.html) with 1749 points.
 
@@ -31,11 +35,11 @@ This required just opening the file in a hex editor.
 
 In Packet Tracer you can view the Command Log with `ctrl-shift-v`. This is convenient to show the configuration used for the routers. I used [https://ccnax.com/cisco-type-7-password-decryption/](https://ccnax.com/cisco-type-7-password-decryption/) to then decode the password.
 
+![](https://ketho.github.io/data/img/ictf/routed.png)
+
 ```
 020F074F0D1D0728484A0C173A191D1F330C2B382C2D3728 -> ictf{hidden_not_hashed}
 ```
-
-![](https://ketho.github.io/data/img/ictf/routed.png)
 
 ## playful-puppy
 - category: forensics
