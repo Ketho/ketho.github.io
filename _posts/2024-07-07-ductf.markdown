@@ -12,9 +12,9 @@ categories: jekyll update
   - [Team](#team)
   - [Intercepted Transmissions](#intercepted-transmissions)
   - [shufflebox](#shufflebox)
+  - [Sounds Nice](#sounds-nice)
   - [cityviews](#cityviews)
   - [They're Making Decoys](#theyre-making-decoys)
-  - [Sounds Nice](#sounds-nice)
 
 ## Team
 This was my first CTF event with Hague Hackers and we got place #124 with 2522 points 🙂. It is intended as an entry level CTF event for anyone to join. There were special categories for teams from Australian and New Zealand.
@@ -181,23 +181,6 @@ print(flag:format(table.concat(t)))
 -- DUCTF{udiditgjwowsuper}
 {% endhighlight %}
 
-## cityviews
-- category: osint
-
-After looking through Melbourne in Google Maps I found a hotel that looked very similar to the photo, but I initially was slightly off and guessed it was the one across it, Grand Hotel Melbourne. It was [Hotel Indigo Melbourne](https://www.google.com/maps/place/Hotel+Indigo+Melbourne+on+Flinders,+an+IHG+Hotel/@-37.8202368,144.9524746,1088m). 
-
-## They're Making Decoys
-- category: osint
-> The Sergeant from Clarence asked one of the Corporals to patrol for Emus to keep the our fresh troops on their toes and maybe scare some discipline into them. They headed out to an area with lots of sightings reported though they never made it back. Some of the last images uploaded showed what looked to be the enemy, though it turned out to be decoys. These broom heads are getting clever. I'm guessing we're not getting the camera equipment back...
-> 
-> Find the location (lattitude, longitude) of this area rounded to 4 decimal places and wrap it in `DUCTF{}`, e.g. `DUCTF{-25.3445,131.0354}`
-
-![](https://ketho.github.io/data/img/ductf/decoys.jpg)
-
-We had been looking in [Clarence, New South Wales](https://www.google.com/maps/place/Clarence+Nieuw-Zuid-Wales+2790,+Australi%C3%AB/@-33.4706957,150.2162388,14z) but the clue "These broom heads are getting clever" was more important. When looking for "Brooms Head Road" Ardemium finally found them, after also searching through Facebook posts.
-
-[https://maps.app.goo.gl/7mVsbvbhUqo7RkZ29](https://maps.app.goo.gl/7mVsbvbhUqo7RkZ29)
-
 ## Sounds Nice
 - category: hardware
 
@@ -216,3 +199,20 @@ We had been looking in [Clarence, New South Wales](https://www.google.com/maps/p
 ```
 DUCTF{ATS2853_ETK51_9_31}
 ```
+
+## cityviews
+- category: osint
+
+After looking through Melbourne in Google Maps I found a hotel that looked very similar to the photo, but I initially was slightly off and guessed it was the one across it, Grand Hotel Melbourne. It was [Hotel Indigo Melbourne](https://www.google.com/maps/place/Hotel+Indigo+Melbourne+on+Flinders,+an+IHG+Hotel/@-37.8202368,144.9524746,1088m). 
+
+## They're Making Decoys
+- category: osint
+> The Sergeant from Clarence asked one of the Corporals to patrol for Emus to keep the our fresh troops on their toes and maybe scare some discipline into them. They headed out to an area with lots of sightings reported though they never made it back. Some of the last images uploaded showed what looked to be the enemy, though it turned out to be decoys. These broom heads are getting clever. I'm guessing we're not getting the camera equipment back...
+> 
+> Find the location (lattitude, longitude) of this area rounded to 4 decimal places and wrap it in `DUCTF{}`, e.g. `DUCTF{-25.3445,131.0354}`
+
+![](https://ketho.github.io/data/img/ductf/decoys.jpg)
+
+We had been looking in [Clarence, New South Wales](https://www.google.com/maps/place/Clarence+Nieuw-Zuid-Wales+2790,+Australi%C3%AB/@-33.4706957,150.2162388,14z) but the clue "These broom heads are getting clever" was more important. When looking for "Brooms Head Road" Ardemium finally found them, after also searching through Facebook posts.
+
+[https://maps.app.goo.gl/7mVsbvbhUqo7RkZ29](https://maps.app.goo.gl/7mVsbvbhUqo7RkZ29)
