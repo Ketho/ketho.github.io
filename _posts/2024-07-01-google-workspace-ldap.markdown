@@ -4,6 +4,10 @@ title: "WPA-Enterprise with RADIUS and Google Workspace"
 date: 2024-07-01 +0200
 categories: jekyll update
 ---
+![](https://ketho.github.io/data/google-ldap/wifi-header1.png)
+
+![](https://ketho.github.io/data/google-ldap/wifi-header2.png)
+
 This guide describes how to set up a company Wi-Fi network that authenticates via Google Workspace credentials. FreeRADIUS is open source and the industry standard for RADIUS servers.
 
 ## Features
