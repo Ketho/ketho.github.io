@@ -1,0 +1,89 @@
+---
+layout: post
+title: "ImaginaryCTF 2024"
+date: 2024-07-21 +0200
+categories: jekyll update
+---
+- Website: [https://2024.imaginaryctf.org/](https://2024.imaginaryctf.org/)
+- CTFtime: [https://ctftime.org/event/2396/](https://ctftime.org/event/2396/)
+
+Hague Hackers placed [#148](https://2024.imaginaryctf.org/Leaderboard.html) with 1749 points.
+
+![](https://ketho.github.io/data/img/20240721_ictf_team.png)
+
+## bom
+- category: forensics
+> 楣瑦筴栴瑟楳渷彣桩渳獥
+
+This required just opening the file in a hex editor.
+```
+楣瑦筴栴瑟楳渷彣桩渳獥 -> ictf{th4t_isn7_chin3se}`
+```
+
+![](https://ketho.github.io/data/img/20240721_ictf_bom.png)
+
+## routed
+- category: forensics
+> Can you dig a bit deeper? (same attachment as packed)
+> 
+> There are some fake flags; this is unintentional. The real flag is not in plaintext.
+
+In Packet Tracer you can view the Command Log with `ctrl-shift-v`. This is convenient to show the configuration used for the routers. I used [https://ccnax.com/cisco-type-7-password-decryption/](https://ccnax.com/cisco-type-7-password-decryption/) to then decode the password.
+
+```
+020F074F0D1D0728484A0C173A191D1F330C2B382C2D3728 -> ictf{hidden_not_hashed}
+```
+
+![](https://ketho.github.io/data/img/20240721_ictf_routed.png)
+
+## playful-puppy
+- category: forensics
+> I lost my dog in Minecraft. Can you find him? The name of the dog wrapped in `ictf{}` is the flag.
+> 
+> The dog's name is 16 hex characters, anything else is not correct.
+
+![](https://ketho.github.io/data/img/20240721_ictf_puppy1.png)
+
+I made a major mistake here, I assumed the name of the dog's name would literally be wrapped in `ictf{}` 🤦
+
+It's possible to find the dog with [NBTExplorer](https://github.com/jaquadro/NBTExplorer)
+
+![](https://ketho.github.io/data/img/20240721_ictf_puppy2.png)
+
+Or by killing all other dogs that are not the same breed and do not have the same color collar from [Entity format: wolf: CollarColor](https://minecraft.wiki/w/Entity_format#Mobs).
+
+There were actually two dogs that would be eligible for the flag, but we only tried using the first one for the flag.
+```
+/kill @e[type=minecraft:wolf,nbt={variant:"minecraft:ashen"}]
+/kill @e[type=minecraft:wolf,nbt={variant:"minecraft:chestnut"}]
+/kill @e[type=minecraft:wolf,nbt={variant:"minecraft:pale"}]
+/kill @e[type=minecraft:wolf,nbt={variant:"minecraft:rusty"}]
+/kill @e[type=minecraft:wolf,nbt={variant:"minecraft:snowy"}]
+/kill @e[type=minecraft:wolf,nbt={variant:"minecraft:spotted"}]
+/kill @e[type=minecraft:wolf,nbt={variant:"minecraft:striped"}]
+/kill @e[type=minecraft:wolf,nbt={variant:"minecraft:woods"}]
+/kill @e[type=minecraft:wolf,nbt={CollarColor:1b}] # Orange
+/kill @e[type=minecraft:wolf,nbt={CollarColor:2b}] # Magenta
+/kill @e[type=minecraft:wolf,nbt={CollarColor:3b}] # Light Blue
+/kill @e[type=minecraft:wolf,nbt={CollarColor:4b}] # Yellow
+/kill @e[type=minecraft:wolf,nbt={CollarColor:5b}] # Lime
+/kill @e[type=minecraft:wolf,nbt={CollarColor:6b}] # Pink
+/kill @e[type=minecraft:wolf,nbt={CollarColor:7b}] # Gray
+/kill @e[type=minecraft:wolf,nbt={CollarColor:8b}] # Light Gray
+/kill @e[type=minecraft:wolf,nbt={CollarColor:9b}] # Cyan
+/kill @e[type=minecraft:wolf,nbt={CollarColor:10b}] # Purple
+/kill @e[type=minecraft:wolf,nbt={CollarColor:12b}] # Brown
+/kill @e[type=minecraft:wolf,nbt={CollarColor:13b}] # Green
+/kill @e[type=minecraft:wolf,nbt={CollarColor:14b}] # Red
+/kill @e[type=minecraft:wolf,nbt={CollarColor:15b}] # Black
+```
+
+So this variant should not be killed.
+```
+/kill @e[type=minecraft:wolf,nbt={variant:"minecraft:black"}]
+/kill @e[type=minecraft:wolf,nbt={CollarColor:11b} # Blue
+```
+
+![](https://ketho.github.io/data/img/20240721_ictf_puppy3.png)
+
+![](https://ketho.github.io/data/img/20240721_ictf_puppy4.png)

@@ -1,21 +1,22 @@
 ---
 layout: post
 title: "DownUnderCTF 2024"
-date: 2024-07-06 +0200
+date: 2024-07-07 +0200
 categories: jekyll update
 ---
 - Website: [https://downunderctf.com/](https://downunderctf.com/)
-- Writeups: [https://github.com/DownUnderCTF/Challenges_2024_Public](https://github.com/DownUnderCTF/Challenges_2024_Public
-)
+- CTFtime: [https://ctftime.org/event/2284/](https://ctftime.org/event/2284/)
+- Writeups: [https://github.com/DownUnderCTF/Challenges_2024_Public](https://github.com/DownUnderCTF/Challenges_2024_Public)
 
-This was my first CTF event with Hague Hackers. It is intended as an entry level CTF event for anyone to join. There were special categories for teams from Australian and New Zealand.
+This was my first CTF event with Hague Hackers and we got place #124 with 2522 points 🙂. It is intended as an entry level CTF event for anyone to join. There were special categories for teams from Australian and New Zealand.
 
 I personally did the `Intercepted Transmissions`, `shufflebox` and `cityviews` challenges. I also tried `Wacky Recipe` but it was difficult and I have no idea why it was marked as easy. We've also been looking everywhere for that damn emu.
 
-![](https://ketho.github.io/data/img/ductf_team.jpg)
+![](https://ketho.github.io/data/img/20240706_ductf_team.jpg)
 
 ## Intercepted Transmissions
-- category: beginner
+- category: misc
+> Those monsters! They've kidnapped the Quokkas! Who in their right mind would capture those friendly little guys.. We've managed to intercept a CCIR476 transmission from the kidnappers, we think it contains the location of our friends! Can you help us decode it? We managed to decode the first two characters as '##'
 
 [Intercepted Transmissions](https://github.com/DownUnderCTF/Challenges_2024_Public/tree/main/beginner/intercepted-transmissions) involves decoding a [CCIR476](https://en.wikipedia.org/wiki/CCIR_476) transmission. This protocol has groups of 7 bits, which decodes to control characters and two character sets: Letters and Figures.
 
@@ -117,7 +118,10 @@ print(flag:format(table.concat(t)))
 {% endhighlight %}
 
 ## shufflebox
-- category: osint
+- category: crypto
+> I've learned that if you shuffle your text, it's elrlay hrda to tlle htaw eht nioiglra nutpi aws.
+> 
+> Find the text censored with question marks in `output_censored.txt` and surround it with `DUCTF{}`.
 
 For [shufflebox](https://github.com/DownUnderCTF/Challenges_2024_Public/tree/main/beginner/shufflebox) you have to deduce the pattern used from the first two example inputs and outputs; to get the flag by decoding the third input.
 
@@ -175,9 +179,14 @@ After looking through Melbourne in Google Maps I found a hotel that looked very 
 
 ## They're Making Decoys
 - category: osint
+> The Sergeant from Clarence asked one of the Corporals to patrol for Emus to keep the our fresh troops on their toes and maybe scare some discipline into them. They headed out to an area with lots of sightings reported though they never made it back. Some of the last images uploaded showed what looked to be the enemy, though it turned out to be decoys. These broom heads are getting clever. I'm guessing we're not getting the camera equipment back...
+> 
+> Find the location (lattitude, longitude) of this area rounded to 4 decimal places and wrap it in `DUCTF{}`, e.g. `DUCTF{-25.3445,131.0354}`
+
+![](https://ketho.github.io/data/img/20240706_ductf_decoys1.jpg)
 
 We had been looking in Clarence, New South Wales, but the clue "These broom heads are getting clever" was more important. When looking for "Brooms Head Road" Ardemium finally found them, after also searching through Facebook posts.
 
 [https://maps.app.goo.gl/7mVsbvbhUqo7RkZ29](https://maps.app.goo.gl/7mVsbvbhUqo7RkZ29)
 
-![](https://ketho.github.io/data/img/20240706_ductf_emu.jpg)
+![](https://ketho.github.io/data/img/20240706_ductf_decoys2.jpg)
