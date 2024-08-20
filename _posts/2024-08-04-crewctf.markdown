@@ -191,6 +191,6 @@ I did not finish the challenge in time since I made a huge mistake in trying to 
 
 At least I activated the line on the lowest layer by enabling inputs 78 and 43, starting from the left. If you look really close you can notice that line is now red.
 
-![](layer71.png)
+![](https://ketho.github.io/data/crewctf/waiting_flag/layer71.png)
 
 I still have no idea where it leads to further on 🤷
