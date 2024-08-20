@@ -4,7 +4,7 @@ title: "Setting up LuaRocks on Windows"
 date: 2024-07-04 +0200
 categories: jekyll update
 ---
-![](https://ketho.github.io/data/img/lua/logo.gif)
+![](https://ketho.github.io/data/lua/logo.gif)
 
 ## Lua
 [Lua](https://www.lua.org/) is a scripting language which is simple and quite easy to learn. It's used in games like [World of Warcraft](https://warcraft.wiki.gg/wiki/World_of_Warcraft_API) and [Minetest](https://www.minetest.net/), and software like [Wireshark](https://www.wireshark.org/) and [MediaWiki](https://www.mediawiki.org/wiki/Extension:Scribunto).
@@ -84,7 +84,7 @@ $env:path = $env:path + ($lua, $luarocks, $mingw, $openssl -join ";")
 ```
 For example these paths would show up twice in the system variables.
 
-![](https://ketho.github.io/data/img/lua/uservars.png)
+![](https://ketho.github.io/data/lua/uservars.png)
 
 ### LuaSocket
 The latest [LuaSocket](https://luarocks.org/modules/lunarmodules/luasocket) version `scm-3` has an issue on Windows.

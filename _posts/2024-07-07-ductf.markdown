@@ -21,7 +21,7 @@ This was my first CTF event with Hague Hackers and we got place #124 with 2522 p
 
 I personally did the `Intercepted Transmissions`, `shufflebox` and `cityviews` challenges and made progress on the other challenges with the team. I also tried `Wacky Recipe` but it was difficult and I have no idea why it was marked as easy.
 
-![](https://ketho.github.io/data/img/ductf/team.jpg)
+![](https://ketho.github.io/data/ductf/team.jpg)
 
 ## Intercepted Transmissions
 - category: misc
@@ -146,6 +146,7 @@ For [shufflebox](https://github.com/DownUnderCTF/Challenges_2024_Public/tree/mai
 -- b  c  a  a  d  b  d  c  d  b  c  d  a  c  a  b
 -- 3  16 14 7  13 10 8  12 4  1  2  5  15 6  11 9
 
+-- Lua
 -- this can be manually solved though
 local code = "owuwspdgrtejiiud"
 
@@ -211,7 +212,7 @@ After looking through Melbourne in Google Maps I found a hotel that looked very 
 > 
 > Find the location (lattitude, longitude) of this area rounded to 4 decimal places and wrap it in `DUCTF{}`, e.g. `DUCTF{-25.3445,131.0354}`
 
-![](https://ketho.github.io/data/img/ductf/decoys.jpg)
+![](https://ketho.github.io/data/ductf/decoys.jpg)
 
 We had been looking in [Clarence, New South Wales](https://www.google.com/maps/place/Clarence+Nieuw-Zuid-Wales+2790,+Australi%C3%AB/@-33.4706957,150.2162388,14z) but the clue "These broom heads are getting clever" was more important. When looking for "Brooms Head Road" Ardemium finally found them, after also searching through Facebook posts.
 
