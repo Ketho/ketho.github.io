@@ -18,7 +18,7 @@ Requirements:
 - Lua binary: [lua-5.4.2_Win64_bin.zip](https://sourceforge.net/projects/luabinaries/files/5.4.2/Tools%20Executables/lua-5.4.2_Win64_bin.zip/download)
   - from [https://sourceforge.net/projects/luabinaries/files/5.4.2/Tools%20Executables/](https://sourceforge.net/projects/luabinaries/files/5.4.2/Tools%20Executables/)
 - Lua library: [lua-5.4.2_Win64_vc17_lib](https://sourceforge.net/projects/luabinaries/files/5.4.2/Windows%20Libraries/Static/lua-5.4.2_Win64_vc17_lib.zip/download)
-  - from https://sourceforge.net/projects/luabinaries/files/5.4.2/Windows%20Libraries/Static/
+  - from [https://sourceforge.net/projects/luabinaries/files/5.4.2/Windows%20Libraries/Static/](https://sourceforge.net/projects/luabinaries/files/5.4.2/Windows%20Libraries/Static/)
 - LuaRocks: [luarocks-3.11.1-windows-64](https://luarocks.org/releases/luarocks-3.11.1-windows-64.zip) (all-in-one package)
   - from [https://github.com/luarocks/luarocks/wiki/Download](https://github.com/luarocks/luarocks/wiki/Download)
 - MinGW: [winlibs-x86_64-posix-seh-gcc-14.2.0-llvm-18.1.8-mingw-w64ucrt-12.0.0-r1.zip](https://github.com/brechtsanders/winlibs_mingw/releases/download/14.2.0posix-18.1.8-12.0.0-ucrt-r1/winlibs-x86_64-posix-seh-gcc-14.2.0-llvm-18.1.8-mingw-w64ucrt-12.0.0-r1.zip)
@@ -28,7 +28,7 @@ Requirements:
 
 ### Notes
 - Either static (vc17) or dynamic (dll17) Lua libraries can be used, the only thing we need is the `include` folder from it and to move that into our Lua folder, e.g. `lua-5.4.2_Win64_bin/include`.
-- It requires installing [PowerShell 7](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.4) and changing the [execution policy](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7.4); please do this at your own risk.
+- This requires installing [PowerShell 7](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.4) and changing the [execution policy](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7.4); please do this at your own risk.
 ```ps1
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted
 ```
@@ -93,5 +93,12 @@ You will need to download the [rockspec](https://github.com/lunarmodules/luasock
 luarocks install .\luasocket-scm-3.rockspec
 ```
 
-## Conclusion
-This guide should save you some time if you really need to use LuaRocks in Windows. But it really illustrates how annoying it is.
+## Testing
+This should print the html contents of a website.
+```lua
+local https = require "ssl.https"
+
+local url = "https://www.google.com/"
+local body = https.request(url)
+print(body)
+```
