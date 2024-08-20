@@ -4,7 +4,7 @@ title: "OverTheWire Bandit"
 date: 2024-08-17 +0200
 categories: jekyll update
 ---
-Website: [https://overthewire.org/wargames/](https://overthewire.org/wargames/)
+[https://overthewire.org/wargames/](https://overthewire.org/wargames/)
 ```sh
 ssh bandit0@bandit.labs.overthewire.org -p 2220
 ```
