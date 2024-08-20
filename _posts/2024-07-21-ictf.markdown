@@ -14,7 +14,7 @@ categories: jekyll update
   - [playful puppy](#playful-puppy)
 
 ## Team
-My team Hague Hackers placed [#148](https://2024.imaginaryctf.org/Leaderboard.html) with 1749 points.
+Our team Hague Hackers placed [#148](https://2024.imaginaryctf.org/Leaderboard.html) with 1749 points.
 
 ![](https://ketho.github.io/data/img/ictf/team.png)
 
@@ -22,7 +22,7 @@ My team Hague Hackers placed [#148](https://2024.imaginaryctf.org/Leaderboard.ht
 - category: forensics
 > 楣瑦筴栴瑟楳渷彣桩渳獥
 
-This required just opening the file in a hex editor.
+It's a bunch of Chinese like but it doesn't make any sense, some kind of [mojibake](https://en.wikipedia.org/wiki/Mojibake). But when opening the file in a hex editor it suddenly made sense.
 
 ![](https://ketho.github.io/data/img/ictf/bom.png)
 
@@ -54,7 +54,7 @@ In Packet Tracer you can view the Command Log with `ctrl-shift-v`. This is conve
 
 ![](https://ketho.github.io/data/img/ictf/puppy2.jpg)
 
-I made a major mistake here, I assumed the name of the dog's name would literally be wrapped in `ictf{}` 🤦
+I made a major mistake here, I assumed the name of the dog would literally be wrapped in `ictf{}` 🤦
 
 It's possible to find the dog with [NBTExplorer](https://github.com/jaquadro/NBTExplorer). 
 This search finds the first dog in `entities -> r.-1.-1.mca -> Chunk [30, 28]`

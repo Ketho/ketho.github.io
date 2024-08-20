@@ -1,0 +1,28 @@
+---
+layout: post
+title: "CrewCTF 2024"
+date: 2024-08-04 +0200
+categories: jekyll update
+---
+- Website: [https://2024.crewc.tf/](https://2024.crewc.tf/)
+- CTFtime: [https://ctftime.org/event/2223/](https://ctftime.org/event/2223/)
+
+## Table of Contents
+  - [Team](#team)
+  - [sniff](#sniff)
+  - [routed](#routed)
+
+## Team
+Our team Hague Hackers placed [#53](https://2024.imaginaryctf.org/Leaderboard.html) with 523 points. Early on we almost got into the top 10, but oh well 🙂
+
+![](https://ketho.github.io/data/img/crewctf/team.png)
+
+## Sniff one
+- category: hardware
+
+
+
+## Waiting For a Flag
+- category: hardware
+
+I first tried to decompile the game with [Godot RE Tools](https://github.com/bruvzg/gdsdecomp) but the project was encrypted so it required a key. Later I saw other people reverse engineered the binary anyway with IDA.

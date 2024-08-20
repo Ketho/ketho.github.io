@@ -1,9 +1,11 @@
 ---
 layout: post
-title: "LuaRocks on Windows"
-date: 2024-08-19 +0200
+title: "Setting up LuaRocks on Windows"
+date: 2024-07-04 +0200
 categories: jekyll update
 ---
+![](https://ketho.github.io/data/img/lua/logo.gif)
+
 ## Lua
 [Lua](https://www.lua.org/) is a scripting language which is simple and quite easy to learn. It's used in games like [World of Warcraft](https://warcraft.wiki.gg/wiki/World_of_Warcraft_API) and [Minetest](https://www.minetest.net/), and software like [Wireshark](https://www.wireshark.org/) and [MediaWiki](https://www.mediawiki.org/wiki/Extension:Scribunto).
 
@@ -82,13 +84,13 @@ $env:path = $env:path + ($lua, $luarocks, $mingw, $openssl -join ";")
 ```
 For example these paths would show up twice in the system variables.
 
-![](https://ketho.github.io//data/img/20240820_uservars.png)
+![](https://ketho.github.io/data/img/lua/uservars.png)
 
 ### LuaSocket
-[LuaSocket](https://luarocks.org/modules/lunarmodules/luasocket) version `scm-3` has an issue on Windows.
+The latest [LuaSocket](https://luarocks.org/modules/lunarmodules/luasocket) version `scm-3` has an issue on Windows.
 - [https://github.com/lunarmodules/luasocket/pull/433](https://github.com/lunarmodules/luasocket/pull/433)
 
-You will need to download the [rockspec](https://github.com/lunarmodules/luasocket/blob/master/luasocket-scm-3.rockspec), apply the [patch](https://github.com/lunarmodules/luasocket/pull/433/files) to the rockspec and install it manually.
+Until the pull request has been merged you will need to download the [rockspec](https://github.com/lunarmodules/luasocket/blob/master/luasocket-scm-3.rockspec), apply the [patch](https://github.com/lunarmodules/luasocket/pull/433/files) to the rockspec and install it manually.
 ```
 luarocks install .\luasocket-scm-3.rockspec
 ```

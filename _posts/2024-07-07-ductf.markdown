@@ -140,7 +140,7 @@ For [shufflebox](https://github.com/DownUnderCTF/Challenges_2024_Public/tree/mai
 -- ???????????????? -> owuwspdgrtejiiud
 
 -- we find the new positions from the first two examples, so
--- the column with "aa" is at pos 3, "ab" at pos 9, etc
+-- the column with "aa" is at pos 3, "ab" at pos 16, etc
 
 -- c  c  a  c  c  d  a  b  d  b  d  b  b  a  d  a
 -- b  c  a  a  d  b  d  c  d  b  c  d  a  c  a  b
