@@ -101,7 +101,7 @@ So this cute variant should not be killed.
 
 ![](https://ketho.github.io/data/ictf/puppy4.png)
 
-So which of them is Patience the dog? 🐶
+So which one of them is Patience the dog? 🐶
 ```
 ictf{6ed247d7539bb3bf}
 ictf{7209b0cc553a8c39}

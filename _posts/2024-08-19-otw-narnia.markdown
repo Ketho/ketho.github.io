@@ -4,7 +4,7 @@ title: "OverTheWire Narnia"
 date: 2024-08-19 +0200
 categories: jekyll update
 ---
-[https://overthewire.org/wargames/narnia/](https://overthewire.org/wargames/narnia/)
+[https://overthewire.org/wargames/narnia/](https://overthewire.org/wargames/narnia/) 🦁
 ```sh
 ssh narnia0@narnia.labs.overthewire.org -p 2226
 ```
@@ -12,7 +12,7 @@ ssh narnia0@narnia.labs.overthewire.org -p 2226
 I'm using [pwntools](https://github.com/Gallopsled/pwntools) in a Kali Linux VM to make it easier to solve the levels. OverTheWire also seems to include python3 and pwntools.
 
 ## Observations
-There is a `/narnia` folder and the passwords are in `/etc/narnia_pass`. Some of the levels also seem to include C source code.
+There is a `/narnia` folder and the passwords are in `/etc/narnia_pass`. The levels also include C source code.
 ```sh
 find / -type f -name '*narnia*' 2> /dev/null
 /etc/issue.narnia

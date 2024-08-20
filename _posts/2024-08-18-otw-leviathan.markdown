@@ -9,7 +9,9 @@ categories: jekyll update
 ssh leviathan0@leviathan.labs.overthewire.org -p 2223
 ```
 
-Leviathan is relatively easy but some of the levels require some tricky symlinking.
+![](https://ketho.github.io/data/otw-leviathan/ffxiv.png)
+
+Leviathan from [Final Fantasy XIV](https://finalfantasy.fandom.com/wiki/Leviathan_(Final_Fantasy_XIV)); this wargame is relatively easy but sometimes requires tricky symlinking.
 
 ## Observations
 I first searched for any filenames with leviathan. So the passwords are in `/etc/leviathan_pass`, and only the respective level has access to the password.

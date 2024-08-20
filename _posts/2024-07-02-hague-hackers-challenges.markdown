@@ -4,7 +4,7 @@ title: "Hague Hackers pwn-vm"
 date: 2024-07-02 +0200
 categories: jekyll update
 ---
-![](haguehackers.png)
+![](https://ketho.github.io/data/img/haguehackers.png)
 
 These are the `pwn-vm` challenges from Hague Hackers.
 

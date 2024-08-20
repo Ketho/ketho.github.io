@@ -204,13 +204,15 @@ DUCTF{ATS2853_ETK51_9_31}
 ## cityviews
 - category: osint
 
-> After having to go on the run, I've had to bunker down. Which building did I capture this ![picture](https://raw.githubusercontent.com/DownUnderCTF/Challenges_2024_Public/main/osint/cityviews/publish/cityviews.jpeg) from?
+> After having to go on the run, I've had to bunker down. Which building did I capture this picture from?
+> 
+> ![](https://raw.githubusercontent.com/DownUnderCTF/Challenges_2024_Public/main/osint/cityviews/publish/cityviews.jpeg)
 
 After looking through Melbourne in Google Maps I found a hotel that looked very similar to one in the photo, it's the Great Southern Hotel.
 
 ![](https://ketho.github.io/data/ductf/great_southern_hotel.jpg)
 
-But I was initially wrong about the vantage point, I guessed Grand Hotel Melbourne. One of my team members did get it right afterwards, the vantage point of the photo was [Hotel Indigo Melbourne](https://maps.app.goo.gl/NKQ8re6wrNDaqqPD8).
+But I was initially wrong about the vantage point, I guessed Grand Hotel Melbourne. One of my team members (SubRosa1602) did get it right afterwards, the vantage point of the photo was [Hotel Indigo Melbourne](https://maps.app.goo.gl/NKQ8re6wrNDaqqPD8).
 
 ## They're Making Decoys
 - category: osint
