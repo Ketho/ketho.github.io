@@ -23,16 +23,19 @@ Our team Hague Hackers placed [#53](https://2024.imaginaryctf.org/Leaderboard.ht
 
 ## Sniff one
 - category: hardware
-- author: [Oshawk](https://oshawk.uk/Home)
 - [README.pdf](https://ketho.github.io/data/crewctf/sniffone/README.pdf)
 - The flag is in `flag{}` format
 
-We can open the [capture.sal](https://ketho.github.io/data/crewctf/sniffone/capture.sal) file with [Salea Logic 2](https://www.saleae.com/pages/downloads). The [CardKB Mini Keyboard](https://shop.m5stack.com/products/cardkb-mini-keyboard-programmable-unit-v1-1-mega8a) communicates via [I2C](https://en.wikipedia.org/wiki/I%C2%B2C).
+The complete setup with [Saleae Logic 8](https://www.saleae.com/products/saleae-logic-8) sniffer.
+
+![](https://ketho.github.io/data/crewctf/sniffone/everything.jpg)
+
+We can open the [capture.sal](https://ketho.github.io/data/crewctf/sniffone/capture.sal) file with [Salea Logic 2](https://www.saleae.com/pages/downloads).
+
+The [CardKB Mini Keyboard](https://shop.m5stack.com/products/cardkb-mini-keyboard-programmable-unit-v1-1-mega8a) communicates via [I2C](https://en.wikipedia.org/wiki/I%C2%B2C).
 - SDA: channel 0
 - SCL: channel 1
 - I2C address: `0x5F` ([datasheet](https://docs.m5stack.com/en/unit/cardkb_1.1))
-
-![](https://ketho.github.io/data/crewctf/sniffone/everything.jpg)
 
 So we need to look for reads to `0x5F` in the sniffed [data](https://ketho.github.io/data/crewctf/sniffone/data.txt) and for "flag" which would be `0x66, 0x6C, 0x61, 0x67` according to the data sheet.
 
@@ -168,6 +171,7 @@ print(table.concat(t))
 
 ## Waiting For a Flag
 - category: hardware
+- author: [Oshawk](https://oshawk.uk/Home)
 
 I first tried to decompile the game with [Godot RE Tools](https://github.com/bruvzg/gdsdecomp) but the project was encrypted so it required a key. Later I saw other people reverse engineered the binary anyway with IDA.
 
