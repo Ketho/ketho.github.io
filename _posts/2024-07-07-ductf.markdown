@@ -204,7 +204,9 @@ DUCTF{ATS2853_ETK51_9_31}
 ## cityviews
 - category: osint
 
-After looking through Melbourne in Google Maps I found a hotel that looked very similar to the photo, but I initially was slightly off and guessed it was the one across it, Grand Hotel Melbourne. It was [Hotel Indigo Melbourne](https://www.google.com/maps/place/Hotel+Indigo+Melbourne+on+Flinders,+an+IHG+Hotel/@-37.8202368,144.9524746,1088m). 
+After looking through Melbourne in Google Maps I found a hotel that looked very similar to the photo, but I initially was slightly off and guessed it was the one across it, Grand Hotel Melbourne.
+
+One of my team members got it right, it was [Hotel Indigo Melbourne](https://www.google.com/maps/place/Hotel+Indigo+Melbourne+on+Flinders,+an+IHG+Hotel/@-37.8202368,144.9524746,1088m).
 
 ## They're Making Decoys
 - category: osint

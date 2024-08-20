@@ -179,7 +179,7 @@ As we learn in the tutorial levels, we need to turn on the LED with the button s
 
 - All the button switches are on the top level: 126 on the left, 116 on the right, total 242.
 - There are 71 layers to the level.
-- You have to deduce what kind of logic gates there are and in which direction their output is. This makes it especially challenging to deduce whether a gate is an AND or a NAND gate.
+- You have to deduce what kind of logic gates there are and in which direction their output is. This makes it especially challenging to know whether a gate is an AND or a NAND gate.
 
 I started tracing and marking the relevant switches, nodes and gates in order to keep track of them.
 
