@@ -32,7 +32,7 @@ We can open the [capture.sal](https://ketho.github.io/data/crewctf/sniffone/capt
 - SCL: channel 1
 - I2C address: `0x5F` ([datasheet](https://docs.m5stack.com/en/unit/cardkb_1.1))
 
-![](https://ketho.github.io/data/crewctf/sniffone/everything.png)
+![](https://ketho.github.io/data/crewctf/sniffone/everything.jpg)
 
 So we need to look for reads to `0x5F` in the sniffed [data](https://ketho.github.io/data/sniffone/data.txt) and for "flag" which would be `0x66, 0x6C, 0x61, 0x67` according to the data sheet.
 
