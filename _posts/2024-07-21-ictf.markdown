@@ -16,11 +16,12 @@ Hague Hackers placed [#148](https://2024.imaginaryctf.org/Leaderboard.html) with
 > 楣瑦筴栴瑟楳渷彣桩渳獥
 
 This required just opening the file in a hex editor.
-```
-楣瑦筴栴瑟楳渷彣桩渳獥 -> ictf{th4t_isn7_chin3se}`
-```
 
 ![](https://ketho.github.io/data/img/20240721_ictf_bom.png)
+
+```
+楣瑦筴栴瑟楳渷彣桩渳獥 -> ictf{th4t_isn7_chin3se}
+```
 
 ## routed
 - category: forensics
@@ -87,3 +88,8 @@ So this variant should not be killed.
 ![](https://ketho.github.io/data/img/20240721_ictf_puppy3.png)
 
 ![](https://ketho.github.io/data/img/20240721_ictf_puppy4.png)
+
+```
+ictf{6ed247d7539bb3bf}
+ictf{7209b0cc553a8c39}
+```
