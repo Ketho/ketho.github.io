@@ -23,6 +23,7 @@ Our team Hague Hackers placed [#53](https://2024.imaginaryctf.org/Leaderboard.ht
 
 ## Sniff one
 - category: hardware
+- author: [Oshawk](https://oshawk.uk/Home)
 - [README.pdf](https://ketho.github.io/data/crewctf/sniffone/README.pdf)
 - The flag is in `flag{}` format
 
@@ -153,7 +154,7 @@ local blacklist = {
 local f = io.open("keyboard.md", "r")
 local t = {}
 for l in f:lines() do
-    local hex_string = l:match('read to 0x5F ack data: (0x%x%x)')
+    local hex_string = l:match("read to 0x5F ack data: (0x%x%x)")
     local hex = tonumber(hex_string)
     if hex and not blacklist[hex] then
         -- print(hex, data[hex])
@@ -187,3 +188,9 @@ I started tracing and marking the relevant switches, nodes and gates in order to
 I did not finish the challenge in time since I made a huge mistake in trying to get to the bottom layer. I assumed the LED was all the way at the bottom layer at layer 71, but it was simply in the middle of the top layer, connected to something else at layer 62 🤦
 
 ![](https://ketho.github.io/data/crewctf/waiting_flag/diagram.png)
+
+At least I activated the line on the lowest layer by enabling inputs 78 and 43, starting from the left. If you look really close you can notice that line is now red.
+
+![](layer71.png)
+
+I still have no idea where it leads to further on 🤷
