@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "WPA-Enterprise with RADIUS and Google Workspace"
-date: 2024-07-01 +0200
+date: 2024-01-31 +0200
 categories: jekyll update
 ---
 ![](https://ketho.github.io/data/google-ldap/wifi-header1.png)
@@ -590,12 +590,12 @@ eap {
 
 The configuration rules are in sequential order. For example if `ketho` is eligible for both the first and second rule, it will match the first one and be assigned to VLAN 10.
 ```sh
-DEFAULT Ldap-Group == "cn=<snip>,ou=Groups,dc=housemage,dc=nl"
+DEFAULT Ldap-Group == "cn=office1,ou=Groups,dc=housemage,dc=nl"
         Tunnel-Type = VLAN,
         Tunnel-Medium-Type = IEEE-802,
         Tunnel-Private-Group-Id = 10
 
-DEFAULT Ldap-Group == "cn=<snip>,ou=Groups,dc=housemage,dc=nl"
+DEFAULT Ldap-Group == "cn=office2,ou=Groups,dc=housemage,dc=nl"
         Tunnel-Type = VLAN,
         Tunnel-Medium-Type = IEEE-802,
         Tunnel-Private-Group-Id = 20
@@ -605,4 +605,133 @@ DEFAULT
         Tunnel-Type = VLAN,
         Tunnel-Medium-Type = IEEE-802,
         Tunnel-Private-Group-Id = 30
+```
+
+# RouterOS VLANs
+*Reference: https://help.ui.com/hc/en-us/articles/9761080275607-UniFi-Network-Creating-Virtual-Networks-VLANs*
+
+VLANs are [virtual networks](https://en.wikipedia.org/wiki/VLAN). For example we can have the following VLANs:
+- 10 - office1
+- 20 - office2
+- 30 - office3
+- 100 - wifi_personal
+- 110 - wifi_guest
+
+To implement them we need to:
+- Define the VLANs in the UniFi console.
+- Define the VLANs in the router (in my case Mikrotik) and Configure InterVLAN routing.
+- For users connecting via ethernet - assign your switchports access ports to a specific VLAN.
+
+We already can assign VLANs through RADIUS, so the only thing we still require is InterVLAN routing.
+
+![](https://ketho.github.io/data/google-ldap/radius_vlans.png)
+
+![](https://ketho.github.io/data/google-ldap/unifi_vlans.png)
+
+## RADIUS assigned VLANs
+In Google Workspace we can create groups, and in FreeRADIUS we can assign a VLAN to them.
+
+`raddb/users`
+```py
+DEFAULT Ldap-Group == "cn=office1,ou=Groups,dc=housemage,dc=nl"
+        Tunnel-Type = VLAN,
+        Tunnel-Medium-Type = IEEE-802,
+        Tunnel-Private-Group-Id = 10
+
+DEFAULT Ldap-Group == "cn=office2,ou=Groups,dc=housemage,dc=nl"
+        Tunnel-Type = VLAN,
+        Tunnel-Medium-Type = IEEE-802,
+        Tunnel-Private-Group-Id = 20
+
+DEFAULT Ldap-Group == "cn=office3,ou=Groups,dc=housemage,dc=nl"
+        Tunnel-Type = VLAN,
+        Tunnel-Medium-Type = IEEE-802,
+        Tunnel-Private-Group-Id = 30
+```
+
+## Configure MikroTik router
+*Reference: https://wiki.mikrotik.com/wiki/Manual:First_time_startup, https://wiki.mikrotik.com/wiki/Manual:Initial_Configuration*
+
+To start with a clean slate, we can reset the whole thing to an empty configuration instead of factory defaults.
+```py
+/system reset-configuration no-defaults=yes skip-backup=yes
+```
+Note this is for setting up a MikroTik router behind another router, with NAT instead of routing.
+```py
+# user
+/user
+    add name=ketho password="<snip>" group=full
+    remove admin
+# bridge
+/interface bridge
+    add name=hw_bridge
+/ip address
+    add address=192.168.2.1/23 interface=hw_bridge
+# dhcp
+/ip pool
+    add name=default_pool ranges=192.168.2.50-192.168.2.254
+/ip dhcp-server
+    add address-pool=default_pool interface=hw_bridge lease-time=10m name=dhcp1
+/ip dhcp-server network
+    # there is a dnsmasq server but use this router anyway
+    add address=192.168.2.0/24 dns-server=192.168.2.1 gateway=192.168.2.1
+# this router is a dhcp client of the RB5009
+/ip dhcp-client
+    add interface=ether1
+# dns
+/ip dns
+    # this router is the dns server
+    set allow-remote-requests=yes
+# nat
+/ip firewall nat
+    add action=masquerade chain=srcnat out-interface=ether1
+# serial console
+/system console
+    disable 0
+/port
+    set serial0 baud-rate=115200 data-bits=8 parity=none stop-bits=1
+/system console
+    enable 0
+# this will disconnect the terminal if we're connected via one of the interfaces
+/interface bridge port
+    add bridge=hw_bridge interface=ether2
+    add bridge=hw_bridge interface=ether3
+    add bridge=hw_bridge interface=ether4
+    add bridge=hw_bridge interface=ether5
+```
+
+## Configure VLANs
+Now we need to define the VLANs and assign their DHCP pools. InterVLAN routing should work once they are created.
+```py
+# vlans
+/interface vlan
+    add interface=hw_bridge vlan-id=10  name=office1
+    add interface=hw_bridge vlan-id=20  name=office2
+    add interface=hw_bridge vlan-id=30  name=office3
+    add interface=hw_bridge vlan-id=100 name=wifi_personal
+    add interface=hw_bridge vlan-id=110 name=wifi_guest
+/ip address
+    add address=192.168.10.1/24  network=192.168.10.0  interface=office1
+    add address=192.168.20.1/24  network=192.168.20.0  interface=office2
+    add address=192.168.30.1/24  network=192.168.30.0  interface=office3
+    add address=192.168.100.1/24 network=192.168.100.0 interface=wifi_personal
+    add address=192.168.110.1/24 network=192.168.110.0 interface=wifi_guest
+/ip pool
+    add name=pool_10  ranges=192.168.10.10-192.168.10.254
+    add name=pool_20  ranges=192.168.20.10-192.168.20.254
+    add name=pool_30  ranges=192.168.30.10-192.168.30.254
+    add name=pool_100 ranges=192.168.100.10-192.168.100.254
+    add name=pool_110 ranges=192.168.110.10-192.168.110.254
+/ip dhcp-server
+    add address-pool=pool_10  name=dhcp_10  interface=office1
+    add address-pool=pool_20  name=dhcp_20  interface=office2
+    add address-pool=pool_30  name=dhcp_30  interface=office3
+    add address-pool=pool_100 name=dhcp_100 interface=wifi_personal
+    add address-pool=pool_110 name=dhcp_110 interface=wifi_guest
+/ip dhcp-server network
+    add address=192.168.10.0/24  gateway=192.168.10.1  dns-server=192.168.10.1
+    add address=192.168.20.0/24  gateway=192.168.20.1  dns-server=192.168.20.1
+    add address=192.168.30.0/24  gateway=192.168.30.1  dns-server=192.168.30.1
+    add address=192.168.100.0/24 gateway=192.168.100.1 dns-server=192.168.100.1
+    add address=192.168.110.0/24 gateway=192.168.110.1 dns-server=192.168.110.1
 ```
