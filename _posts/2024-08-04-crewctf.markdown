@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "CrewCTF 2024"
-date: 2024-08-04 +0200
+date: 2024-08-12 +0200
 categories: jekyll update
 ---
 - Website: [https://2024.crewc.tf/](https://2024.crewc.tf/)
