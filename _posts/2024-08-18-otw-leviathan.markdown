@@ -64,7 +64,7 @@ scp -P 2223 leviathan1@leviathan.labs.overthewire.org:~/check check
 ```
 In `main` it reads an input of 3 characters and compares it with `int32_t var_28 = 0x786573`. This value is the string "sex" when converted from hex (LSB).
 
-![](https://ketho.github.io/data/otw-leviathan/https://ketho.github.io/data/otw-leviathan/leviathan1.png)
+![](https://ketho.github.io/data/otw-leviathan/leviathan1.png)
 
 ```sh
 ./check
