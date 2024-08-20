@@ -22,7 +22,7 @@ Our team Hague Hackers placed [#148](https://2024.imaginaryctf.org/Leaderboard.h
 - category: forensics
 > 楣瑦筴栴瑟楳渷彣桩渳獥
 
-It's a bunch of Chinese like but it doesn't make any sense, some kind of [mojibake](https://en.wikipedia.org/wiki/Mojibake). But when opening the file in a hex editor it suddenly made sense.
+It's a bunch of Chinese but it doesn't make any sense, like some kind of [mojibake](https://en.wikipedia.org/wiki/Mojibake). But when opening the file in a hex editor it suddenly made sense.
 
 ![](https://ketho.github.io/data/ictf/bom.png)
 
