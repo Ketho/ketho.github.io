@@ -198,7 +198,7 @@ We had been looking in [Clarence, New South Wales](https://www.google.com/maps/p
 ## Sounds Nice
 - category: hardware
 
-> I'm trying to reverse engineer this sound bar. Maybe you can answer my questions about this?
+> I'm trying to reverse engineer this [sound bar](https://github.com/DownUnderCTF/Challenges_2024_Public/blob/main/hardware/sounds-nice/publish/soundsystem.jpeg). Maybe you can answer my questions about this?
 > 
 > Which bluetooth chipset is used?  
 > What is wireless audio chipset used?  
