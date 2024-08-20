@@ -1,0 +1,183 @@
+---
+layout: post
+title: "DownUnderCTF 2024"
+date: 2024-07-06 +0200
+categories: jekyll update
+---
+- Website: [https://downunderctf.com/](https://downunderctf.com/)
+- Writeups: [https://github.com/DownUnderCTF/Challenges_2024_Public](https://github.com/DownUnderCTF/Challenges_2024_Public
+)
+
+This was my first CTF event with Hague Hackers. It is intended as an entry level CTF event for anyone to join. There were special categories for teams from Australian and New Zealand.
+
+I personally did the `Intercepted Transmissions`, `shufflebox` and `cityviews` challenges. I also tried `Wacky Recipe` but it was difficult and I have no idea why it was marked as easy. We've also been looking everywhere for that damn emu.
+
+![](https://ketho.github.io/data/img/ductf_team.jpg)
+
+## Intercepted Transmissions
+- category: beginner
+
+[Intercepted Transmissions](https://github.com/DownUnderCTF/Challenges_2024_Public/tree/main/beginner/intercepted-transmissions) involves decoding a [CCIR476](https://en.wikipedia.org/wiki/CCIR_476) transmission. This protocol has groups of 7 bits, which decodes to control characters and two character sets: Letters and Figures.
+
+So we basically read the `encoding` file, split it up in groups of 7 bits and lookup what it decodes into.
+
+{% highlight lua %}
+-- Lua
+local control = {
+    ["1111000"] = "[CR]",
+    ["1101100"] = "[LF]",
+    ["1011010"] = "[LTRS]",
+    ["0110110"] = "[FIGS]",
+    ["1011100"] = " ", -- space
+    ["1101010"] = "[BLK]",
+}
+ 
+local letters = {
+    ["1000111"] = "A",
+    ["1110010"] = "B",
+    ["0011101"] = "C",
+    ["1010011"] = "D",
+    ["1010110"] = "E",
+    ["0011011"] = "F",
+    ["0110101"] = "G",
+    ["1101001"] = "H",
+    ["1001101"] = "I",
+    ["0010111"] = "J",
+    ["0011110"] = "K",
+    ["1100101"] = "L",
+    ["0111001"] = "M",
+    ["1011001"] = "N",
+    ["1110001"] = "0",
+    ["0101101"] = "P",
+    ["0101110"] = "Q",
+    ["1010101"] = "R",
+    ["1001011"] = "S",
+    ["1110100"] = "T",
+    ["1001110"] = "U",
+    ["0111100"] = "V",
+    ["0100111"] = "W",
+    ["0111010"] = "X",
+    ["0101011"] = "Y",
+    ["1100011"] = "Z",
+}
+
+local figures = { -- U.S. TTYs
+    ["1000111"] = "-",
+    ["1110010"] = "?",
+    ["0011101"] = ":",
+    ["1010011"] = "[WRU]", -- Who are you
+    ["1010110"] = "3",
+    ["0011011"] = "!",
+    ["0110101"] = "&",
+    ["1101001"] = "#",
+    ["1001101"] = "8",
+    ["0010111"] = "´",
+    ["0011110"] = "(",
+    ["1100101"] = ")",
+    ["0111001"] = ".",
+    ["1011001"] = ",",
+    ["1110001"] = "9",
+    ["0101101"] = "0",
+    ["0101110"] = "1",
+    ["1010101"] = "4",
+    ["1001011"] = "'",
+    ["1110100"] = "5",
+    ["1001110"] = "7",
+    ["0111100"] = ";",
+    ["0100111"] = "2",
+    ["0111010"] = "/",
+    ["0101011"] = "6",
+    ["1100011"] = "\"",
+}
+
+local f = io.open("encoding", "r")
+local code = f:read("a")
+
+local char_set
+local t = {}
+
+for i = 1, #code, 7 do
+    local c = code:sub(i, i+6)
+    if control[c] then
+        if control[c] == "[LTRS]" then
+            char_set = letters
+        elseif control[c] == "[FIGS]" then
+            char_set = figures
+        else
+            table.insert(t, control[c])
+        end
+    elseif char_set[c] then
+        table.insert(t, char_set[c])
+    end
+end
+
+local flag = "DUCTF{`%s}"
+print(flag:format(table.concat(t)))
+-- DUCTF{##TH3 QU0KK4'S AR3 H3LD 1N F4C1LITY #11911!}
+{% endhighlight %}
+
+## shufflebox
+- category: osint
+
+For [shufflebox](https://github.com/DownUnderCTF/Challenges_2024_Public/tree/main/beginner/shufflebox) you have to deduce the pattern used from the first two example inputs and outputs; to get the flag by decoding the third input.
+
+{% highlight lua %}
+-- aaaabbbbccccdddd -> ccaccdabdbdbbada
+-- abcdabcdabcdabcd -> bcaadbdcdbcdacab
+-- ???????????????? -> owuwspdgrtejiiud
+
+-- we find the new positions from the first two examples, so
+-- the column with "aa" is at pos 3, "ab" at pos 9, etc
+
+-- c  c  a  c  c  d  a  b  d  b  d  b  b  a  d  a
+-- b  c  a  a  d  b  d  c  d  b  c  d  a  c  a  b
+-- 3  16 14 7  13 10 8  12 4  1  2  5  15 6  11 9
+
+-- this can be manually solved though
+local code = "owuwspdgrtejiiud"
+
+local map = {
+    [1] = 3,
+    [2] = 16,
+    [3] = 14,
+    [4] = 7,
+    [5] = 13,
+    [6] = 10,
+    [7] = 8,
+    [8] = 12,
+    [9] = 4,
+    [10] = 1,
+    [11] = 2,
+    [12] = 5,
+    [13] = 15,
+    [14] = 6,
+    [15] = 11,
+    [16] = 9,
+}
+
+local t = {}
+
+for i = 1, #code do
+    local a = map[i]
+    local b = code:sub(a, a)
+    table.insert(t, b)
+end
+
+local flag = "DUCTF{`%s}"
+print(flag:format(table.concat(t)))
+-- DUCTF{udiditgjwowsuper}
+{% endhighlight %}
+
+## cityviews
+- category: osint
+
+After looking through Melbourne in Google Maps I found a hotel that looked very similar to the photo, but I initially was slightly off and guessed it was the one across it, Grand Hotel Melbourne. It was [Hotel Indigo Melbourne](https://www.google.com/maps/place/Hotel+Indigo+Melbourne+on+Flinders,+an+IHG+Hotel/@-37.8202368,144.9524746,1088m). 
+
+## They're Making Decoys
+- category: osint
+
+We had been looking in Clarence, New South Wales, but the clue "These broom heads are getting clever" was more important. When looking for "Brooms Head Road" Ardemium finally found them, after also searching through Facebook posts.
+
+[https://maps.app.goo.gl/7mVsbvbhUqo7RkZ29](https://maps.app.goo.gl/7mVsbvbhUqo7RkZ29)
+
+![](https://ketho.github.io/data/img/20240706_ductf_emu.jpg)
