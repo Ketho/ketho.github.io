@@ -1,3 +1,5 @@
+I like writing addons for World of Warcraft and playing video games :)
+
 - GitHub: [Ketho](https://github.com/Ketho)
 - Twitter: [Ketho17](https://x.com/Ketho17)
 - Discord: ketho
