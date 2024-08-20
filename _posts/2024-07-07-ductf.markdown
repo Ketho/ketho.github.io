@@ -204,9 +204,11 @@ DUCTF{ATS2853_ETK51_9_31}
 ## cityviews
 - category: osint
 
-After looking through Melbourne in Google Maps I found a hotel that looked very similar to the photo, but I initially was slightly off and guessed it was the one across it, Grand Hotel Melbourne.
+After looking through Melbourne in Google Maps I found a hotel that looked very similar to one in the photo, it's the Great Southern Hotel.
 
-One of my team members got it right, it was [Hotel Indigo Melbourne](https://maps.app.goo.gl/i83GacQYwVioMP6p7).
+![](https://ketho.github.io/data/ductf/great_southern_hotel.jpg)
+
+But I was initially wrong about the vantage point, I guessed Grand Hotel Melbourne. One of my team members did get it right afterwards, the vantage point of the photo was [Hotel Indigo Melbourne](https://maps.app.goo.gl/NKQ8re6wrNDaqqPD8).
 
 ## They're Making Decoys
 - category: osint
@@ -216,6 +218,6 @@ One of my team members got it right, it was [Hotel Indigo Melbourne](https://map
 
 ![](https://ketho.github.io/data/ductf/decoys.jpg)
 
-We had been looking in [Clarence, New South Wales](https://www.google.com/maps/place/Clarence+Nieuw-Zuid-Wales+2790,+Australi%C3%AB/@-33.4706957,150.2162388,14z) but the clue "These broom heads are getting clever" was more important. When looking for "Brooms Head Road" [Ardemium](https://ardemium.nl/posts/downunderctf/2024/postevent/) finally found them, after also searching through Facebook posts.
+We had been looking in [Clarence, New South Wales](https://www.google.com/maps/place/Clarence+Nieuw-Zuid-Wales+2790,+Australi%C3%AB/@-33.4706957,150.2162388,14z) but the clue "*These broom heads are getting clever*" was more important. When looking for "Brooms Head Road" [Ardemium](https://ardemium.nl/posts/downunderctf/2024/postevent/) finally found them, after also searching through Facebook posts.
 
 [https://maps.app.goo.gl/7mVsbvbhUqo7RkZ29](https://maps.app.goo.gl/7mVsbvbhUqo7RkZ29)
