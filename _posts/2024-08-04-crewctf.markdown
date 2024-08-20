@@ -9,8 +9,8 @@ categories: jekyll update
 
 ## Table of Contents
   - [Team](#team)
-  - [sniff](#sniff)
-  - [routed](#routed)
+  - [Sniff one](#sniff-one)
+  - [Waiting For a Flag](#waiting-for-a-flag)
 
 ## Team
 Our team Hague Hackers placed [#53](https://2024.imaginaryctf.org/Leaderboard.html) with 523 points.
@@ -23,19 +23,21 @@ Our team Hague Hackers placed [#53](https://2024.imaginaryctf.org/Leaderboard.ht
 
 ## Sniff one
 - category: hardware
+- [README.pdf](https://ketho.github.io/data/crewctf/sniffone/README.pdf)
+- The flag is in `flag{}` format
 
-Note that the flag is in `flag{}` format.
-
-We can open the [capture.sal](https://ketho.github.io/data/crewctf/capture.sal) file with [Salea Logic 2](https://www.saleae.com/pages/downloads). The [CardKB Mini Keyboard](https://shop.m5stack.com/products/cardkb-mini-keyboard-programmable-unit-v1-1-mega8a) communicates via [I2C](https://en.wikipedia.org/wiki/I%C2%B2C).
+We can open the [capture.sal](https://ketho.github.io/data/crewctf/sniffone/capture.sal) file with [Salea Logic 2](https://www.saleae.com/pages/downloads). The [CardKB Mini Keyboard](https://shop.m5stack.com/products/cardkb-mini-keyboard-programmable-unit-v1-1-mega8a) communicates via [I2C](https://en.wikipedia.org/wiki/I%C2%B2C).
 - SDA: channel 0
 - SCL: channel 1
 - I2C address: `0x5F` ([datasheet](https://docs.m5stack.com/en/unit/cardkb_1.1))
 
-So we need to look for reads to `0x5F` in the sniffed [data](https://ketho.github.io/data/sniffone.txt) and for "flag" which would be `0x66, 0x6C, 0x61, 0x67` according to the data sheet.
+![](https://ketho.github.io/data/crewctf/sniffone/everything.png)
+
+So we need to look for reads to `0x5F` in the sniffed [data](https://ketho.github.io/data/sniffone/data.txt) and for "flag" which would be `0x66, 0x6C, 0x61, 0x67` according to the data sheet.
 
 Surely enough we found 0x66 followed by 0x6C.
 
-![](https://ketho.github.io/data/crewctf/sniffone.png)
+![](https://ketho.github.io/data/crewctf/sniffone/logic.png)
 
 I wrote a simple script to parse the text and ignore 0x0 and 0x1 values.
 {% highlight lua %}
@@ -167,3 +169,21 @@ print(table.concat(t))
 - category: hardware
 
 I first tried to decompile the game with [Godot RE Tools](https://github.com/bruvzg/gdsdecomp) but the project was encrypted so it required a key. Later I saw other people reverse engineered the binary anyway with IDA.
+
+Then I tried to do it the intended(?) way since it looked kinda fun.
+
+![](https://ketho.github.io/data/crewctf/waiting_flag/intro.mp4)
+
+As we learn in the tutorial levels, we need to turn on the LED with the button switches and the `AND, OR, NAND, NOT` gates.
+
+- All the button switches are on the top level: 126 on the left, 116 on the right, total 242.
+- There are 71 layers to the level.
+- You have to deduce what kind of logic gates there are and in which direction their output is. This makes it especially challenging to deduce whether a gate is an AND or a NAND gate.
+
+I started tracing and marking the relevant switches, nodes and gates in order to keep track of them.
+
+![](https://ketho.github.io/data/crewctf/waiting_flag/layer36.png)
+
+I did not finish the challenge in time since I made a huge mistake in trying to get to the bottom layer. I assumed the LED was all the way at the bottom layer at layer 71, but it was simply in the middle of the top layer, connected to something else at layer 62 🤦
+
+![](https://ketho.github.io/data/crewctf/waiting_flag/diagram.png)
