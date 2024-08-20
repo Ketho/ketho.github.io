@@ -9,7 +9,7 @@ categories: jekyll update
 
 Hague Hackers placed [#148](https://2024.imaginaryctf.org/Leaderboard.html) with 1749 points.
 
-![](https://ketho.github.io/data/img/20240721_ictf_team.png)
+![](https://ketho.github.io/data/img/ictf/team.png)
 
 ## bom
 - category: forensics
@@ -17,7 +17,7 @@ Hague Hackers placed [#148](https://2024.imaginaryctf.org/Leaderboard.html) with
 
 This required just opening the file in a hex editor.
 
-![](https://ketho.github.io/data/img/20240721_ictf_bom.png)
+![](https://ketho.github.io/data/img/ictf/bom.png)
 
 ```
 楣瑦筴栴瑟楳渷彣桩渳獥 -> ictf{th4t_isn7_chin3se}
@@ -35,7 +35,7 @@ In Packet Tracer you can view the Command Log with `ctrl-shift-v`. This is conve
 020F074F0D1D0728484A0C173A191D1F330C2B382C2D3728 -> ictf{hidden_not_hashed}
 ```
 
-![](https://ketho.github.io/data/img/20240721_ictf_routed.png)
+![](https://ketho.github.io/data/img/ictf/routed.png)
 
 ## playful-puppy
 - category: forensics
@@ -43,15 +43,21 @@ In Packet Tracer you can view the Command Log with `ctrl-shift-v`. This is conve
 > 
 > The dog's name is 16 hex characters, anything else is not correct.
 
-![](https://ketho.github.io/data/img/20240721_ictf_puppy1.png)
+![](https://ketho.github.io/data/img/ictf/puppy1.png)
+
+![](https://ketho.github.io/data/img/ictf/puppy2.png)
 
 I made a major mistake here, I assumed the name of the dog's name would literally be wrapped in `ictf{}` 🤦
 
 It's possible to find the dog with [NBTExplorer](https://github.com/jaquadro/NBTExplorer)
 
-![](https://ketho.github.io/data/img/20240721_ictf_puppy2.png)
+![](https://ketho.github.io/data/img/ictf/puppy_nbt1.png)
 
-Or by killing all other dogs that are not the same breed and do not have the same color collar from [Entity format: wolf: CollarColor](https://minecraft.wiki/w/Entity_format#Mobs).
+This search finds the first dog in `entities -> r.-1.-1.mca -> Chunk [30, 28]`
+
+![](https://ketho.github.io/data/img/ictf/puppy_nbt2.png)
+
+Alternatively they can be found by killing all other dogs that are not the same breed and do not have the same color collar from [Entity format: wolf: CollarColor](https://minecraft.wiki/w/Entity_format#Mobs).
 
 There were actually two dogs that would be eligible for the flag, but we only tried using the first one for the flag.
 ```
@@ -79,15 +85,15 @@ There were actually two dogs that would be eligible for the flag, but we only tr
 /kill @e[type=minecraft:wolf,nbt={CollarColor:15b}] # Black
 ```
 
-So this variant should not be killed.
+So this cute variant should not be killed.
 ```
 /kill @e[type=minecraft:wolf,nbt={variant:"minecraft:black"}]
 /kill @e[type=minecraft:wolf,nbt={CollarColor:11b} # Blue
 ```
 
-![](https://ketho.github.io/data/img/20240721_ictf_puppy3.png)
+![](https://ketho.github.io/data/img/ictf/puppy3.png)
 
-![](https://ketho.github.io/data/img/20240721_ictf_puppy4.png)
+![](https://ketho.github.io/data/img/ictf/puppy4.png)
 
 ```
 ictf{6ed247d7539bb3bf}
