@@ -8,8 +8,14 @@ categories: jekyll update
 
 ![](https://ketho.github.io/data/google-ldap/wifi-header2.png)
 
+## Table of Contents
+  - [FreeRADIUS](#freeradius)
+  - [rlm_ldap](#rlm_ldap)
+  - [RouterOS VLANs](#routeros-vlans)
+
 This guide describes how to set up a company Wi-Fi network that authenticates via Google Workspace credentials. FreeRADIUS is open source and the industry standard for RADIUS servers.
 
+# FreeRADIUS
 ## Features
 - Support multiple LDAP domains like `@housemage.nl` and `@housemage.com`.
 - RADIUS assigned VLANs depending on Google Workspace group.
