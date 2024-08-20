@@ -57,7 +57,7 @@ In Packet Tracer you can view the Command Log with `ctrl-shift-v`. This is conve
 I made a major mistake here, I assumed the name of the dog would literally be wrapped in `ictf{}` 🤦
 
 It's possible to find the dog with [NBTExplorer](https://github.com/jaquadro/NBTExplorer). 
-This search finds the first dog in `entities -> r.-1.-1.mca -> Chunk [30, 28]`
+By searching for `CollarColor: 11` and skipping until you find `variant: minecraft:black`, the first match will be in `entities -> r.-1.-1.mca -> Chunk [30, 28]`.
 
 ![](https://ketho.github.io/data/ictf/puppy_nbt1.png)
 
