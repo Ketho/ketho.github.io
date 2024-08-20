@@ -4,7 +4,7 @@ title: "Setting up LuaRocks on Windows"
 date: 2024-07-04 +0200
 categories: jekyll update
 ---
-![](https://ketho.github.io/data/lua/logo.gif)
+![](https://ketho.github.io/data/lua/logo.jpg)
 
 ## Lua
 [Lua](https://www.lua.org/) is a scripting language which is simple and quite easy to learn. It's used in games like [World of Warcraft](https://warcraft.wiki.gg/wiki/World_of_Warcraft_API) and [Minetest](https://www.minetest.net/), and software like [Wireshark](https://www.wireshark.org/) and [MediaWiki](https://www.mediawiki.org/wiki/Extension:Scribunto).
