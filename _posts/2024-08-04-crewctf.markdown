@@ -173,7 +173,7 @@ I first tried to decompile the game with [Godot RE Tools](https://github.com/bru
 
 Then I tried to do it the intended(?) way since it looked kinda fun.
 
-![](https://ketho.github.io/data/crewctf/waiting_flag/intro.mp4)
+<iframe width="636" height="372" src="https://ketho.github.io/data/crewctf/waiting_flag/intro.mp4" frameborder="0" allowfullscreen></iframe>
 
 As we learn in the tutorial levels, we need to turn on the LED with the button switches and the `AND, OR, NAND, NOT` gates.
 
