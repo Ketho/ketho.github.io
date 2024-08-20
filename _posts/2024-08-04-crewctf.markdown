@@ -34,7 +34,7 @@ We can open the [capture.sal](https://ketho.github.io/data/crewctf/sniffone/capt
 
 ![](https://ketho.github.io/data/crewctf/sniffone/everything.jpg)
 
-So we need to look for reads to `0x5F` in the sniffed [data](https://ketho.github.io/data/sniffone/data.txt) and for "flag" which would be `0x66, 0x6C, 0x61, 0x67` according to the data sheet.
+So we need to look for reads to `0x5F` in the sniffed [data](https://ketho.github.io/data/crewctf/sniffone/data.txt) and for "flag" which would be `0x66, 0x6C, 0x61, 0x67` according to the data sheet.
 
 Surely enough we found 0x66 followed by 0x6C.
 
