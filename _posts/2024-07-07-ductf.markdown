@@ -214,6 +214,6 @@ After looking through Melbourne in Google Maps I found a hotel that looked very 
 
 ![](https://ketho.github.io/data/ductf/decoys.jpg)
 
-We had been looking in [Clarence, New South Wales](https://www.google.com/maps/place/Clarence+Nieuw-Zuid-Wales+2790,+Australi%C3%AB/@-33.4706957,150.2162388,14z) but the clue "These broom heads are getting clever" was more important. When looking for "Brooms Head Road" Ardemium finally found them, after also searching through Facebook posts.
+We had been looking in [Clarence, New South Wales](https://www.google.com/maps/place/Clarence+Nieuw-Zuid-Wales+2790,+Australi%C3%AB/@-33.4706957,150.2162388,14z) but the clue "These broom heads are getting clever" was more important. When looking for "Brooms Head Road" [Ardemium](https://ardemium.nl/posts/downunderctf/2024/postevent/) finally found them, after also searching through Facebook posts.
 
 [https://maps.app.goo.gl/7mVsbvbhUqo7RkZ29](https://maps.app.goo.gl/7mVsbvbhUqo7RkZ29)
