@@ -183,13 +183,11 @@ After looking through Melbourne in Google Maps I found a hotel that looked very 
 > 
 > Find the location (lattitude, longitude) of this area rounded to 4 decimal places and wrap it in `DUCTF{}`, e.g. `DUCTF{-25.3445,131.0354}`
 
-![](https://ketho.github.io/data/img/ductf/decoys1.jpg)
+![](https://ketho.github.io/data/img/ductf/decoys.jpg)
 
 We had been looking in Clarence, New South Wales, but the clue "These broom heads are getting clever" was more important. When looking for "Brooms Head Road" Ardemium finally found them, after also searching through Facebook posts.
 
 [https://maps.app.goo.gl/7mVsbvbhUqo7RkZ29](https://maps.app.goo.gl/7mVsbvbhUqo7RkZ29)
-
-![](https://ketho.github.io/data/img/ductf/decoys2.jpg)
 
 ## Sounds Nice
 - category: hardware
