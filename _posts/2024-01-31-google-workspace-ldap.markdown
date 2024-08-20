@@ -104,7 +104,7 @@ If you want to test users with plain text passwords you can add them to the top 
 &#35; `raddb/users` (symlinked to `raddb/mods-config/files/authorize`)
 ```sh
 Ketho     Cleartext-Password := "banana17"
-    Reply-Message := `"Hello, %{User-Name}"`
+    Reply-Message := "Hello, %{User-Name}"
 ```
 ```sh
 # when encrypting a password with radcrypt
@@ -476,7 +476,7 @@ server google-ldap {
 		eap
 		# TTLS-PAP, Windows
 		Auth-Type LDAP {
-			%{realm}`
+			%{realm}
 			switch &realm { 
 				case "housemage.nl" {
 					ldap

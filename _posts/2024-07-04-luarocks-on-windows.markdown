@@ -26,7 +26,7 @@ Requirements:
 - MinGW: [winlibs-x86_64-posix-seh-gcc-14.2.0-llvm-18.1.8-mingw-w64ucrt-12.0.0-r1.zip](https://github.com/brechtsanders/winlibs_mingw/releases/download/14.2.0posix-18.1.8-12.0.0-ucrt-r1/winlibs-x86_64-posix-seh-gcc-14.2.0-llvm-18.1.8-mingw-w64ucrt-12.0.0-r1.zip)
   - from [https://winlibs.com/](https://winlibs.com/)
 - OpenSSL: `openssl-3.0.2-win64-mingw` (for LuaSec)
-  - from [https://curl.se/windows/](https://curl.se/windows/) but they [no longer](https://archive.is/Ogwbv) provide OpenSSL windows binaries, and I could not find any similar distributions so use this [mirror](https://github.com/Ketho/ketho.github.io/raw/main/data/software/openssl-3.0.2-win64-mingw.zip) at your own risk.
+  - from [https://curl.se/windows/](https://curl.se/windows/) but they [no longer](https://archive.is/Ogwbv) provide OpenSSL windows binaries, and I could not find any similar distributions so use this [mirror](https://github.com/Ketho/ketho.github.io/raw/main/data/lua/openssl-3.0.2-win64-mingw.zip) at your own risk.
 
 ### Notes
 - Either static (vc17) or dynamic (dll17) Lua libraries can be used, the only thing we need is the `include` folder from it and to move that into our Lua folder, e.g. `lua-5.4.2_Win64_bin/include`.
