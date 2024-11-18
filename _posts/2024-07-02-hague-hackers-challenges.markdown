@@ -260,7 +260,7 @@ int main(int argc, char * argv[]){
 }
 ```
 When checking `ls -la` we notice we have full rights on `/home/pwn/level6/whoami`
-So we can make abuse this by making a symlink from `/home/pwn/level6/whoami` to `levelup`. Note that we have to delete this `whoami` file first.
+So we can abuse this by making a symlink from `/home/pwn/level6/whoami` to `levelup`. Note that we have to delete this `whoami` file first.
 ```sh
 rm whoami
 ln -s levelup whoami
