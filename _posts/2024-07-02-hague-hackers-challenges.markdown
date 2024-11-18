@@ -44,6 +44,7 @@ We need to [set](https://stackoverflow.com/questions/234742/setting-environment-
 ```sh
 export level0=foo
 ./level0 ea5y_chaLL3ng3 eaSy_p34sy
+./levelup
 ```
 
 ## level 1
