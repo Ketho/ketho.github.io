@@ -23,17 +23,13 @@ Requirements:
   - from [https://sourceforge.net/projects/luabinaries/files/5.4.2/Windows%20Libraries/Static/](https://sourceforge.net/projects/luabinaries/files/5.4.2/Windows%20Libraries/Static/)
 - LuaRocks: [luarocks-3.11.1-windows-64](https://luarocks.org/releases/luarocks-3.11.1-windows-64.zip) (all-in-one package)
   - from [https://github.com/luarocks/luarocks/wiki/Download](https://github.com/luarocks/luarocks/wiki/Download)
-- MinGW: [winlibs-x86_64-posix-seh-gcc-14.2.0-llvm-18.1.8-mingw-w64ucrt-12.0.0-r1.zip](https://github.com/brechtsanders/winlibs_mingw/releases/download/14.2.0posix-18.1.8-12.0.0-ucrt-r1/winlibs-x86_64-posix-seh-gcc-14.2.0-llvm-18.1.8-mingw-w64ucrt-12.0.0-r1.zip)
+- MinGW: [winlibs-x86_64-posix-seh-gcc-14.2.0-mingw-w64ucrt-12.0.0-r3.zip](https://github.com/brechtsanders/winlibs_mingw/releases/download/14.2.0posix-19.1.7-12.0.0-msvcrt-r3/winlibs-x86_64-posix-seh-gcc-14.2.0-mingw-w64msvcrt-12.0.0-r3.zip)
   - from [https://winlibs.com/](https://winlibs.com/)
 - OpenSSL: `openssl-3.0.2-win64-mingw` (for LuaSec)
   - from [https://curl.se/windows/](https://curl.se/windows/) but they [no longer](https://archive.is/Ogwbv) provide OpenSSL windows binaries, and I could not find any similar distributions so use this [mirror](https://github.com/Ketho/ketho.github.io/raw/main/data/lua/openssl-3.0.2-win64-mingw.zip) at your own risk.
 
 ### Notes
 - Either static (vc17) or dynamic (dll17) Lua libraries can be used, the only thing we need is the `include` folder from it and to move that into our Lua folder, e.g. `lua-5.4.2_Win64_bin/include`.
-- This requires installing [PowerShell 7](https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.4) and changing the [execution policy](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7.4); please do this at your own risk.
-```ps1
-Set-ExecutionPolicy -ExecutionPolicy Unrestricted
-```
 
 This PowerShell script tries to automate the setup steps, but I suggest going through it step for step in case of any errors.
 ```powershell
@@ -45,14 +41,16 @@ $base = "D:/Dev"
 $lua = "$base/lua-5.4.2_Win64_bin"
 # https://github.com/luarocks/luarocks/wiki/Download
 $luarocks = "$base/luarocks-3.11.1-windows-64"
-# https://winlibs.com/ -> GCC 14.2.0 (with POSIX threads) + LLVM/Clang/LLD/LLDB 18.1.8 + MinGW-w64 12.0.0 UCRT - release 1
-$mingw = "$base/winlibs-x86_64-posix-seh-gcc-14.2.0-llvm-18.1.8-mingw-w64ucrt-12.0.0-r1\mingw64\bin"
+# https://winlibs.com/
+$mingw = "$base/winlibs-x86_64-posix-seh-gcc-14.2.0-mingw-w64ucrt-12.0.0-r3\mingw64\bin"
 # https://curl.se/windows/ (no longer available)
-$openssl = "$base/openssl-3.0.2-win64-mingw\bin"
+$openssl = "$base/openssl-3.0.2-win64-mingw"
+$openssl_bin = "$openssl/bin"
 
-# add to windows path
-$env:path = $env:path + ($lua, $luarocks, $mingw, $openssl -join ";")
-[Environment]::SetEnvironmentVariable("Path", $env:Path, [System.EnvironmentVariableTarget]::Machine)
+# add to system path
+$paths = @($lua, $luarocks, $mingw, $openssl_bin -join ";")
+$systemPath = [Environment]::GetEnvironmentVariable("Path", [EnvironmentVariableTarget]::Machine)
+[Environment]::SetEnvironmentVariable("Path", $systemPath + $paths, [EnvironmentVariableTarget]::Machine)
 
 # set luarocks path
 setx -m LUA_PATH "$luarocks\lua\?.lua;$luarocks\lua\?\init.lua;$luarocks\?.lua;$luarocks\?\init.lua;$luarocks\..\share\lua\5.4\?.lua;$luarocks\..\share\lua\5.4\?\init.lua;.\?.lua;.\?\init.lua;$env:APPDATA/luarocks/share/lua/5.4/?.lua;$env:APPDATA/luarocks/share/lua/5.4/?/init.lua"
@@ -74,17 +72,6 @@ luarocks install lua-cjson
 luarocks install gumbo
 luarocks install csv
 ```
-
-## Issues
-### PowerShell script
-There is a caveat with this script I haven't solved. Any user variables (vs system varables) also show up in the path so they get duplicated. You will need to delete them afterwards from the system variables.
-```powershell
-$env:path = $env:path + ($lua, $luarocks, $mingw, $openssl -join ";")
-[Environment]::SetEnvironmentVariable("Path", $env:Path, [System.EnvironmentVariableTarget]::Machine)
-```
-For example these paths would show up twice in the system variables.
-
-![](https://ketho.github.io/data/lua/uservars.png)
 
 ### LuaSocket
 The latest [LuaSocket](https://luarocks.org/modules/lunarmodules/luasocket) version `scm-3` has an issue on Windows.
