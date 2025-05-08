@@ -21,7 +21,6 @@ There is password protected ZIP file protected with a 4-number pincode, wWhich w
 ```py
 import zipfile
 
-# invalid PIN codes which the zip would fail on
 l = [
     '0022',
     '0151',
