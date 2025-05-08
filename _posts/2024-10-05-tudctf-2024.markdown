@@ -1,0 +1,93 @@
+---
+layout: post
+title: "TUDCTF 2024"
+date: 2024-10-05 +0200
+categories: jekyll update
+---
+[TU Delft CTF 2024](https://ctf.ewi.tudelft.nl/)
+
+I joined as random team (flamingo) and we got 1000 points but I mostly did the low hanging fruit.
+
+## Coati Intelligence Agency
+- https://github.com/TU-Delft-CTF-Team/tudctf-2024-challenges/tree/main/forensics/coati-intelligence-agency
+The PDF was not properly censored so selecting and copying reveals the flag.
+```
+TUDCTF{b4d_pdf_r3d4ct10n_s1nks_sh1ps}
+```
+
+## Cybercrime Battle Royale
+- https://github.com/TU-Delft-CTF-Team/tudctf-2024-challenges/tree/main/forensics/cybercrime_battle_royale
+There is password protected ZIP file protected with a 4-number pincode, wWhich we bruteforced and turned out to be 4856.
+```py
+import zipfile
+
+# invalid PIN codes which the zip would fail on
+l = [
+    '0022',
+    '0151',
+    '0334',
+    '0442',
+    '0890',
+    '1296',
+    '1404',
+    '1703',
+    '1720',
+    '2007',
+    '2482',
+    '2577',
+    '2633',
+    '3004',
+    '3100',
+    '3690',
+    '3794',
+    '3898',
+    '3988',
+    '4391',
+]
+
+def unzip_with_password(zip_path):
+    passwords = (f"{i:04d}" for i in range(10000))
+    with zipfile.ZipFile(zip_path, 'r') as zip_ref:
+        for password in passwords:
+            print(password)
+            if password in l:
+                continue
+            else:
+                try:
+                    zip_ref.extractall(pwd=bytes(password, 'utf-8'))
+                    print(f"Password found: {password}")
+                    return
+                except (RuntimeError, zipfile.BadZipFile):
+                    continue
+    print("Password not found in the range 0000-9999")
+
+unzip_with_password('card.zip')
+```
+```
+TUDCTF{01189998819991197253}
+```
+
+## My dog ate my homework
+- https://github.com/TU-Delft-CTF-Team/tudctf-2024-challenges/tree/main/misc/qr
+
+I used https://merri.cx/qrazybox/ to (manually) salvage the QR code.
+```
+TUDCTF{mmm_yummy_QR_CoD3}
+```
+
+## Flag creator
+- https://github.com/TU-Delft-CTF-Team/tudctf-2024-challenges/tree/main/reversing
+
+I grabbed the hex encoded flag with Binary Ninja.
+```
+flag-creator"\x4c\x4d\x41\x4f\x00\x54\x55\x44\x43\x54\x46\x7b\x6a\x75\x35\x74\x2d\x31\x6e\x37\x65\x72\x63\x33\x70\x74\x2d\x31\x74\x7d"
+LMAO TUDCTF{ju5t-1n7erc3pt-1t}
+```
+
+## Hello Hardware
+- https://github.com/TU-Delft-CTF-Team/tudctf-2024-challenges/tree/main/hardware/hello-hardware
+
+We connected to it with putty. The COM port can easily be found with `devmgmt.msc`
+```
+TUDCTF{US1NG_U4RT_15_3553NT14L_1N_H4RDW4R3_H4CK1NG}
+```
