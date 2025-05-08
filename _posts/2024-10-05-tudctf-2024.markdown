@@ -17,7 +17,8 @@ TUDCTF{b4d_pdf_r3d4ct10n_s1nks_sh1ps}
 
 ## Cybercrime Battle Royale
 - https://github.com/TU-Delft-CTF-Team/tudctf-2024-challenges/tree/main/forensics/cybercrime_battle_royale
-There is password protected ZIP file protected with a 4-number pincode, wWhich we bruteforced and turned out to be 4856.
+There is password protected ZIP file protected with a 4-number pincode, wWhich we bruteforced and turned out to be 4856. I had to manually create a list of invalid pin codes that somehow made the zip throw an error.
+
 ```py
 import zipfile
 
