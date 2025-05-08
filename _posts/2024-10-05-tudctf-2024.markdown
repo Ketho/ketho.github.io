@@ -91,3 +91,15 @@ We connected to it with putty. The COM port can easily be found with `devmgmt.ms
 ```
 TUDCTF{US1NG_U4RT_15_3553NT14L_1N_H4RDW4R3_H4CK1NG}
 ```
+
+## Obscure Soup
+[CyberChef](https://gchq.github.io/CyberChef/) is nice.
+- GHQPGS{3ap0q1at
+    - ROT13: `TUDCTF{3nc0d1ng`
+- XzFzX24wdF8=
+    - Base64: `_1s_n0t_`
+- 336e637279703731306e7d
+    - Hex: `3ncryp710n}`
+```
+TUDCTF{3nc0d1ng_1s_n0t_3ncryp710n}
+```
